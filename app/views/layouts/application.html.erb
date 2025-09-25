@@ -17,7 +17,6 @@
         <%= link_to 'Home', root_path %>
 
         <% if user_signed_in? %>
-          <%= link_to 'Users', users_path %>
           <%= link_to 'Books', books_path %>
           <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
         <% else %>
@@ -28,6 +27,10 @@
       </nav>
     </header>
     
+    <% flash.each do |key, message| %>
+      <div class="flash <%= key %>"><%= message %></div>
+    <% end %>    
+
     <%= yield %>
 
     <footer>
