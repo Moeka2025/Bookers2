@@ -1,6 +1,7 @@
-<!-- 左側 -->
 <div class="container mt-3">
   <div class="row">
+ 
+    <!-- 左側 -->
     <div class="col-md-3">
       <h2>User info</h2>
 
@@ -41,5 +42,34 @@
           <%= f.submit "Create Book", class: "btn btn-success" %>
         <% end %>
       </div>
-    </div>
+
+
+    <!-- 右側 -->
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+    
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @books.each do |book| %>
+            <% if book.title.present? && book.body.present? %>
+              <tr>
+                <td>
+                  <%= image_tag book.user.get_profile_image(100, 100), class: "rounded-circle" %>
+                </td>
+                <td><%= book.title %></td>
+                <td><%= book.body %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+
   </div>
+</div>

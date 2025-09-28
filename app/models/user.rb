@@ -15,4 +15,12 @@ class User < ApplicationRecord
     name = warden_conditions[:name] || warden_conditions["name"]
     where(name: name).first
   end
+
+  def get_profile_image(width, height)
+    if profile_image.attached?
+      profile_image.variant(resize_to_fill: [width, height])
+    else
+      "no_image.jpg"
+    end
+  end
 end
