@@ -1,7 +1,7 @@
 <h2>User info</h2>
 
-<% if @user.profile_image.attached? %>
-  <%= image_tag @user.profile_image.variant(resize: "100x100"), class: "rounded-circle mb-3" %>
+<% if user.profile_image.attached? %>
+  <%= image_tag user.profile_image.variant(resize: "100x100"), class: "rounded-circle mb-3" %>
 <% else %>
   <%= image_tag "no_image.jpg", size: "100x100", class:"rounded-circle" %>
 <% end %>
@@ -11,7 +11,7 @@
     <tr></tr>
     <tr>
       <th>name</th>
-      <th><%= @user.name %></th>
+      <th><%= user.name %></th>
     </tr>
     <tr>
       <th>introduction</th>
@@ -20,6 +20,6 @@
   </tbody>
 </table>
 
-<%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-sm w-100" do %>
+<%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-sm w-100" do %>
 <i class="fa-solid fa-user-gear"></i>
 <% end %>
