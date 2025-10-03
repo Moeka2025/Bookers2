@@ -3,7 +3,7 @@
  
     <!-- 左側 -->
     <div class="col-md-3">
-      <%= render 'books/user_info', user: current_user %>
+      <%= render 'books/user_info', user: current_user if current_user.present? %>
       <%= render 'books/new_book' %>
     </div>
 

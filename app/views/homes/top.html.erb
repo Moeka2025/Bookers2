@@ -19,15 +19,22 @@
         </p>
         <p>you can share and exchange your oponions , inspressions , and emotions</p>
         <p> about various books! </p>
-  
 
-
-        <div class="row">
-          <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mx-5 mb-3" %>
-        </div>
-        <div class="row">
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block mx-5" %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="row">
+            <%= link_to "Log in", user_path(current_user), class: "btn btn-info btn-sm btn-block mx-5 mb-3" %>
+          </div>
+          <div class="row">
+            <%= link_to "Sign up", user_path(current_user), class: "btn btn-success btn-sm btn-block mx-5" %>
+          </div>
+        <% else %>
+          <div class="row">
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mx-5 mb-3" %>
+          </div>
+          <div class="row">
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block mx-5" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
