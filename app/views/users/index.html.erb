@@ -4,7 +4,7 @@
     <!-- 左側 -->
     <div class="col-md-3">
       <%= render 'books/user_info', user: current_user if current_user.present? %>
-      <%= render 'books/new_book' %>
+      <%= render 'books/new_book', book: Book.new %>
     </div>
 
       <!-- 右側 -->
@@ -39,6 +39,7 @@
               </tr>
             <% end %>
           </tbody>
-        </tbale>
+        </table>
+      </div>
   </div>
 </div>
