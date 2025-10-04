@@ -2,6 +2,18 @@
   <div class="row justify-content-center">
   <div class="col-sm-12 col-md-8 col-lg-6">
     <h2 class="mt-3">User info</h2>
+
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <p><%= pluralize(@user.errors.count, "error") %> prohibited this user from begin saved:</p>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
     <%= form_with model: @user do |f| %>
       <div class="form-group">
         <%= f.label :name %>
