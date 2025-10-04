@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :wnsure_book_owner, only: [:edit, :update]
 
   def new
     @book = Book.new
@@ -51,5 +52,13 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
+
+  def ensure_book_owner
+    @book = Book.find(params[:id])
+    unless book.user == current_user
+      redirect_to books_path
+    end
+  end
+  
 
 end
